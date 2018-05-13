@@ -6,13 +6,33 @@
 -->
 <html>
 	<head>
-		<title>Elements - Solid State by HTML5 UP</title>
+		<title>Glasses EPFL demo</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+		<style>
+		.container {
+			position: relative;
+			font-family: Arial;
+			font-size: 14px;
+		}
+
+		.text-block {
+			/*margin: auto;*/
+			position: absolute;
+			/*text-align: center;*/
+			bottom: 10px;
+			right: 10px;
+			background-color: white;
+			color: black;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		</style>
 	</head>
 	<body>
 
@@ -24,8 +44,9 @@
 					<section id="wrapper">
 						<header>
 							<div class="inner">
-								<h2>Elements</h2>
-								<p>Phasellus non pulvinar erat. Fusce tincidunt nisl eget ipsum.</p>
+								<!--<h2>Demo</h2>-->
+								<p>This website provides a proof of concept for computing similarity between pair of
+									glasses based on their features.</p>
 							</div>
 						</header>
 
@@ -36,48 +57,77 @@
 
 									<section>
 										<h3 class="major">Choose pair of glass</h3>
-										<form method="post" action="#">
+										<!--<form method="post" action="#">-->
 											<div class="row uniform">
 
 												<div class="12u$">
-													<label for="demo-category">Category</label>
+													<!--<label for="demo-category">Category</label>-->
 													<div class="select-wrapper">
-														<select name="demo-category" id="demo-category">
-															<option value="">-</option>
-															<option value="1">Manufacturing</option>
-															<option value="1">Shipping</option>
-															<option value="1">Administration</option>
-															<option value="1">Human Resources</option>
+														<select  onchange="display_preview()" name="demo-category" id="demo-glass-names">
+															<!--<option value="">-</option>-->
 														</select>
 													</div>
 												</div>
-
+												<div class="12u$">
+													<span class="image fit">
+														<!--<img src="images/pic08.jpg" alt="" />-->
+														<div class="container">
+														  <img id="img_src" src="images/pic08.jpg" alt="Nature" style="width:100%;">
+														  <div id="img_src_txt" class="text-block"> original </div>
+														</div>
+													</span>
+												</div>
 												<div class="12u$">
 													<ul class="actions">
-														<li><input type="submit" value="Send Message" class="special" /></li>
+														<li><input type="submit" value="Find" onclick="display_results()" class="special" /></li>
 													</ul>
 												</div>
 											</div>
-										</form>
+										<!--</form>-->
 									</section>
 
-									<section>
-										<h3 class="major">Results</h3>
-										<h4>Original</h4>
+									<br>
+
+									<section id="section-results" style="visibility: hidden">
+										<h3 class="major">Top 5 Results</h3>
+										<!--<h4>Fit</h4>-->
 										<div class="box alt">
-											<div class="row uniform">
-												<div class="12u$"><span class="image fit"><img src="images/pic08.jpg" alt="" /></span></div>
-											</div>
-										</div>
-										<h4>Fit</h4>
-										<div class="box alt">
-											<div class="row uniform">
-												<div class="4u"><span class="image fit"><img src="images/pic05.jpg" alt="" /></span></div>
-												<div class="4u"><span class="image fit"><img src="images/pic06.jpg" alt="" /></span></div>
-												<div class="4u$"><span class="image fit"><img src="images/pic07.jpg" alt="" /></span></div>
-												<div class="4u"><span class="image fit"><img src="images/pic07.jpg" alt="" /></span></div>
-												<div class="4u"><span class="image fit"><img src="images/pic05.jpg" alt="" /></span></div>
-												<div class="4u$"><span class="image fit"><img src="images/pic06.jpg" alt="" /></span></div>
+											<div id="display-result" class="row uniform">
+												<!--<div class="4u"><span class="image fit">-->
+													<!--&lt;!&ndash;<img src="images/pic05.jpg" alt="" />&ndash;&gt;-->
+													<!--<div class="container">-->
+													  <!--<img id="img_src_1" src="images/pic05.jpg" alt="Nature" style="width:100%;">-->
+													  <!--<div id="img_src_txt_1" class="text-block"> 0.0 </div>-->
+													<!--</div>-->
+												<!--</span></div>-->
+												<!--<div class="4u"><span class="image fit">-->
+													<!--&lt;!&ndash;<img src="images/pic06.jpg" alt="" />&ndash;&gt;-->
+													<!--<div class="container">-->
+													  <!--<img id="img_src_2" src="images/pic06.jpg" alt="Nature" style="width:100%;">-->
+													  <!--<div id="img_src_txt_2" class="text-block"> 0.0 </div>-->
+													<!--</div>-->
+												<!--</span></div>-->
+												<!--<div class="4u"><span class="image fit">-->
+													<!--&lt;!&ndash;<img src="images/pic07.jpg" alt="" />&ndash;&gt;-->
+													<!--<div class="container">-->
+													  <!--<img id="img_src_3" src="images/pic07.jpg" alt="Nature" style="width:100%;">-->
+													  <!--<div id="img_src_txt_3" class="text-block"> 0.0 </div>-->
+													<!--</div>-->
+												<!--</span></div>-->
+												<!--<div class="4u"><span class="image fit">-->
+													<!--&lt;!&ndash;<img src="images/pic07.jpg" alt="" />&ndash;&gt;-->
+													<!--<div class="container">-->
+													  <!--<img id="img_src_4" src="images/pic07.jpg" alt="Nature" style="width:100%;">-->
+													  <!--<div id="img_src_txt_4" class="text-block"> 0.0 </div>-->
+													<!--</div>-->
+												<!--</span></div>-->
+												<!--<div class="4u"><span class="image fit">-->
+													<!--&lt;!&ndash;<img src="images/pic05.jpg" alt="" />&ndash;&gt;-->
+													<!--<div class="container">-->
+													  <!--<img id="img_src_5" src="images/pic05.jpg" alt="Nature" style="width:100%;">-->
+													  <!--<div id="img_src_txt_5" class="text-block"> 0.0 </div>-->
+													<!--</div>-->
+												<!--</span></div>-->
 											</div>
 										</div>
 
@@ -99,6 +149,7 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/glass.js"></script>
 
 	</body>
 </html>
