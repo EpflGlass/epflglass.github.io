@@ -51,8 +51,8 @@ function display_results() {
         text = text + raw_html
             .replace('{2}', n)
             .replace('{0}', 'data/' + data['names'][data['args'][id_select][i]] + '_preview.jpg')
-            .replace('{1}', data['names'][data['args'][id_select][i]] + '<br>'
-            + 'score: ' + data['values'][id_select][i].toFixed(5))
+            .replace('{1}', data['names'][data['args'][id_select][i]] )
+                // + '<br>' + 'score: ' + data['values'][id_select][i].toFixed(5))
     }
 
     document.getElementById("display-result").innerHTML = text;
