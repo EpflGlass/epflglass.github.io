@@ -1,25 +1,32 @@
 
-var data;
+var data_connector;
+var data_lens;
+var data_outer;
 
 
-var raw_html =  '<div class="4u{2}"><span class="image fit">' +
-                '<div class="container">' +
+var raw_html =  '<div class="4u{2}"><span class="image fit"><div>' +
                 '<img src="{0}" style="width:100%;">' +
                 '<div class="text-block">{1}</div>' +
-                '</div>' +
-                '</span></div>';
+                '</div></span></div>';
 
-$.getJSON("data/glass_sim.json", function(json) {
-    // console.log(json); // this will show the info it in firebug console
-    data = json;
-    create_menu(data['names'])
+$.getJSON("data/connector.json", function(json) {
+    data_connector = json;
+    create_menu(data_connector['names'])
+});
+
+$.getJSON("data/lens.json", function(json) {
+    data_lens = json;
+});
+
+$.getJSON("data/outer.json", function(json) {
+    data_outer = json;
 });
 
 
 function display_preview() {
     var e = document.getElementById("demo-glass-names");
     var id_select = e.options[e.selectedIndex].value;
-    var filename = 'data/' + data['names'][id_select] + '_preview.jpg';
+    var filename = 'data/' + data_connector['names'][id_select] + '_preview.jpg';
     console.log(filename);
     document.getElementById('img_src').src = filename
 }
@@ -42,6 +49,18 @@ function display_results() {
 
     var e = document.getElementById("demo-glass-names");
     var id_select = e.options[e.selectedIndex].value;
+
+    // Set 3 rankings
+    display_sub_ratio(data_lens, 'lens', id_select);
+    display_sub_ratio(data_outer, 'outer', id_select);
+    display_sub_ratio(data_connector, 'connector', id_select);
+
+    document.getElementById("section-results").style.visibility = 'visible';
+
+}
+
+function display_sub_ratio(data, id_name, id_select) {
+
     var text = '';
     for (var i = 0; i < data['args'][id_select].length; i++) {
         var n = '';
@@ -54,8 +73,6 @@ function display_results() {
             .replace('{1}', data['names'][data['args'][id_select][i]]
                 + '<br>' + 'score: ' + data['values'][id_select][i].toFixed(5))
     }
-
-    document.getElementById("display-result").innerHTML = text;
-    document.getElementById("section-results").style.visibility = 'visible';
+    document.getElementById("display-result-" + id_name).innerHTML = text;
 
 }

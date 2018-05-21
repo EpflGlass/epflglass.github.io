@@ -14,25 +14,6 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
-		<style>
-		.container {
-			position: relative;
-			font-family: Arial;
-			font-size: 14px;
-		}
-
-		.text-block {
-			/*margin: auto;*/
-			position: absolute;
-			/*text-align: center;*/
-			bottom: 10px;
-			right: 10px;
-			background-color: white;
-			color: black;
-			padding-left: 10px;
-			padding-right: 10px;
-		}
-		</style>
 	</head>
 	<body>
 
@@ -71,11 +52,11 @@
 												<div class="12u$">
 													<span class="image fit">
 														<!--<img src="images/pic08.jpg" alt="" />-->
-														<div class="container">
-														  <img id="img_src" src="images/pic08.jpg" alt="Nature" style="width:100%;">
-														  <div id="img_src_txt" class="text-block"> original </div>
-														</div>
+													  	<img id="img_src" src="images/pic08.jpg">
+														<div id="img_src_txt"> original </div>
 													</span>
+
+													<!--<pre><div id="img_src_txt">score</div></pre>-->
 												</div>
 												<div class="12u$">
 													<ul class="actions">
@@ -89,48 +70,24 @@
 									<br>
 
 									<section id="section-results" style="visibility: hidden">
-										<h3 class="major">Top 5 Results</h3>
+										<h3 class="major">Top Results - Outer</h3>
 										<!--<h4>Fit</h4>-->
 										<div class="box alt">
-											<div id="display-result" class="row uniform">
-												<!--<div class="4u"><span class="image fit">-->
-													<!--&lt;!&ndash;<img src="images/pic05.jpg" alt="" />&ndash;&gt;-->
-													<!--<div class="container">-->
-													  <!--<img id="img_src_1" src="images/pic05.jpg" alt="Nature" style="width:100%;">-->
-													  <!--<div id="img_src_txt_1" class="text-block"> 0.0 </div>-->
-													<!--</div>-->
-												<!--</span></div>-->
-												<!--<div class="4u"><span class="image fit">-->
-													<!--&lt;!&ndash;<img src="images/pic06.jpg" alt="" />&ndash;&gt;-->
-													<!--<div class="container">-->
-													  <!--<img id="img_src_2" src="images/pic06.jpg" alt="Nature" style="width:100%;">-->
-													  <!--<div id="img_src_txt_2" class="text-block"> 0.0 </div>-->
-													<!--</div>-->
-												<!--</span></div>-->
-												<!--<div class="4u"><span class="image fit">-->
-													<!--&lt;!&ndash;<img src="images/pic07.jpg" alt="" />&ndash;&gt;-->
-													<!--<div class="container">-->
-													  <!--<img id="img_src_3" src="images/pic07.jpg" alt="Nature" style="width:100%;">-->
-													  <!--<div id="img_src_txt_3" class="text-block"> 0.0 </div>-->
-													<!--</div>-->
-												<!--</span></div>-->
-												<!--<div class="4u"><span class="image fit">-->
-													<!--&lt;!&ndash;<img src="images/pic07.jpg" alt="" />&ndash;&gt;-->
-													<!--<div class="container">-->
-													  <!--<img id="img_src_4" src="images/pic07.jpg" alt="Nature" style="width:100%;">-->
-													  <!--<div id="img_src_txt_4" class="text-block"> 0.0 </div>-->
-													<!--</div>-->
-												<!--</span></div>-->
-												<!--<div class="4u"><span class="image fit">-->
-													<!--&lt;!&ndash;<img src="images/pic05.jpg" alt="" />&ndash;&gt;-->
-													<!--<div class="container">-->
-													  <!--<img id="img_src_5" src="images/pic05.jpg" alt="Nature" style="width:100%;">-->
-													  <!--<div id="img_src_txt_5" class="text-block"> 0.0 </div>-->
-													<!--</div>-->
-												<!--</span></div>-->
+											<div id="display-result-outer" class="row uniform">
 											</div>
 										</div>
 
+										<h3 class="major">Top Results - Lens</h3>
+										<div class="box alt">
+											<div id="display-result-lens" class="row uniform">
+											</div>
+										</div>
+
+										<h3 class="major">Top Results - Connector</h3>
+										<div class="box alt">
+											<div id="display-result-connector" class="row uniform">
+											</div>
+										</div>
 									</section>
 
 								</div>
