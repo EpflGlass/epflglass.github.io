@@ -9,24 +9,24 @@ var raw_html =  '<div class="4u{2}"><span class="image fit"><div>' +
                 '<div class="text-block">{1}</div>' +
                 '</div></span></div>';
 
-$.getJSON("data/connector.json", function(json) {
-    data_connector = json;
-    create_menu(data_connector['names'])
+$.getJSON("data/json/outer.json", function(json) {
+    data_outer = json;
+    create_menu(data_outer['names'])
 });
 
-$.getJSON("data/lens.json", function(json) {
+$.getJSON("data/json/lens.json", function(json) {
     data_lens = json;
 });
 
-$.getJSON("data/outer.json", function(json) {
-    data_outer = json;
+$.getJSON("data/json/connector.json", function(json) {
+    data_connector = json;
 });
 
 
 function display_preview() {
     var e = document.getElementById("demo-glass-names");
     var id_select = e.options[e.selectedIndex].value;
-    var filename = 'data/' + data_connector['names'][id_select] + '_preview.jpg';
+    var filename = 'data/' + data_outer['names'][id_select] + '_128dpi.jpg';
     console.log(filename);
     document.getElementById('img_src').src = filename
 }
@@ -69,7 +69,7 @@ function display_sub_ratio(data, id_name, id_select) {
         }
         text = text + raw_html
             .replace('{2}', n)
-            .replace('{0}', 'data/' + data['names'][data['args'][id_select][i]] + '_preview.jpg')
+            .replace('{0}', 'data/' + data['names'][data['args'][id_select][i]] + '_128dpi.jpg')
             .replace('{1}', data['names'][data['args'][id_select][i]]
                 + '<br>' + 'score: ' + data['values'][id_select][i].toFixed(5))
     }
