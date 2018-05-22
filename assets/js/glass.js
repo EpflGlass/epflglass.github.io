@@ -16,7 +16,6 @@ $.getJSON("data/json/outer.json", function(json) {
 
 $.getJSON("data/json/lens.json", function(json) {
     data_lens = json;
-    print(data_lens);
 });
 
 $.getJSON("data/json/connector.json", function(json) {
