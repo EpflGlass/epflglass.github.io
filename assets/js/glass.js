@@ -71,7 +71,7 @@ function display_sub_ratio(data, id_name, id_select) {
             .replace('{2}', n)
             .replace('{0}', 'data/' + id_name + '/' + data['names'][data['args'][id_select][i]] + '.jpg')
             .replace('{1}', data['names'][data['args'][id_select][i]]
-                + '<br>' + 'score: ' + data['values'][id_select][i].toFixed(5))
+                + '<br>' + 'score: ' + 100*data['values'][id_select][i].toFixed(3)+'%')
     }
     document.getElementById("display-result-" + id_name).innerHTML = text;
 
