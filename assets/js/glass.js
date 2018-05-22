@@ -6,7 +6,7 @@ var data_outer;
 
 var raw_html =  '<div class="4u{2}">' +
                     '<span class="image fit"><div>' +
-                    '<img style="position:absolute; visibility: hidden" src="data/test.png">' +
+                    '<img style="position:absolute; visibility: hidden" src="{5}">' +
                     '<img src="{0}">' +
                     '<div class="text-block">{1}</div>' +
                     '<input onclick="toggle_overlay(this)" type="checkbox" id="demo-copy-{3}">' +
@@ -86,6 +86,7 @@ function display_sub_ratio(data, id_name, id_select) {
                 + '<br>' + 'score: ' + (100*data['values'][id_select][i]).toFixed(1)+'%')
             .replace('{3}', id_name + i.toString())
             .replace('{4}', id_name + i.toString())
+            .replace('{5}', 'data/outer/' + data['names'][data['args'][id_select][0]] + '.png')
     }
     document.getElementById("display-result-" + id_name).innerHTML = text;
 
